@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ROS App</title>
+    <meta charset=utf-8 />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+  </head>
+
+  <body style="padding-top:60px">
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+	<div class="container">
+	  <a class="brand" href="">ROS App</a>
+	  <ul class="nav">
+	    <li class="active"><a href="">Nodes</a></li>
+	    <li><a href="">Topics</a></li>
+	    <li><a href="">Services</a></li>
+	  </ul>
+	</div>
+      </div>
+    </div>
+    
+    <div class="container-fluid">
+
+      <div class="row-fluid">
+	<div class="span8" id="main">
+	  <%= yield %>
+	</div>
+      </div>
+      
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+  </body>
+</html>
