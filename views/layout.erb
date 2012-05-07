@@ -12,14 +12,12 @@
 	<div class="container">
 	  <a class="brand" href="">ROS App</a>
 	  <ul class="nav">
-	    <li class="active"><a href="">Nodes</a></li>
-	    <li><a href="">Topics</a></li>
-	    <li><a href="">Services</a></li>
+	    <%= print_nav %>
 	  </ul>
 	</div>
       </div>
     </div>
-    
+
     <div class="container-fluid">
 
       <div class="row-fluid">
@@ -27,9 +25,24 @@
 	  <%= yield %>
 	</div>
       </div>
-      
+
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script>
+      $(document).ready(function(){
+      function debug(str){ $("#debug").append("<p>"+str+"</p>"); };
+
+      ws = new WebSocket("ws://localhost:8080");
+      ws.onmessage = function(evt) { $("#msg").append("<p>"+evt.data+"</p>"); };
+      ws.onclose = function() { debug("socket closed"); };
+      ws.onopen = function() {
+      debug("connected...");
+      ws.send("hello server");
+      };
+      });
+    </script>
+    <div id="debug"></div>
+    <div id="msg"></div>
   </body>
 </html>
